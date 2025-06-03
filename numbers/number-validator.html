@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Input Validator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 500px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+      position: relative;
+    }
+
+    h1:after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      margin: 10px auto;
+      border-radius: 2px;
+    }
+
+    .description {
+      color: #34495e;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin: 25px 0;
+    }
+
+    .instructions {
+      background-color: #f8f9fa;
+      border-left: 4px solid #3498db;
+      padding: 15px;
+      margin: 25px 0;
+      text-align: left;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .instructions h3 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    .instructions ul {
+      padding-left: 20px;
+    }
+
+    .instructions li {
+      margin-bottom: 8px;
+      color: #34495e;
+    }
+
+    .btn {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      border: none;
+      padding: 16px 40px;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      margin: 20px 0;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(106, 17, 203, 0.4);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .result-container {
+      margin-top: 30px;
+      padding: 25px;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .result-title {
+      color: #2c3e50;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .result-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #6a11cb;
+      transition: all 0.3s ease;
+    }
+
+    .result-null {
+      color: #e74c3c;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .history {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .history h3 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    .history ul {
+      list-style-type: none;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .history li {
+      padding: 8px 12px;
+      background-color: #edf2f7;
+      margin-bottom: 8px;
+      border-radius: 5px;
+      color: #34495e;
+    }
+
+    footer {
+      margin-top: 30px;
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 25px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Number Input Validator</h1>
+
+    <div class="description">
+      This utility will prompt you to enter a numeric value until you provide a valid number or cancel the operation.
+    </div>
+
+    <div class="instructions">
+      <h3>How it works:</h3>
+      <ul>
+        <li>Click the "Enter Number" button to start</li>
+        <li>Enter any value in the prompt dialog</li>
+        <li>The system will validate your input</li>
+        <li>If the value is not a valid number, you'll be prompted again</li>
+        <li>You can cancel at any time by clicking "Cancel" or entering an empty string</li>
+      </ul>
+    </div>
+
+    <button class="btn" id="startBtn">Enter Number</button>
+
+    <div class="result-container">
+      <div class="result-title">Result:</div>
+      <div id="result" class="result-value">—</div>
+    </div>
+
+    <div class="history">
+      <h3>Validation History:</h3>
+      <ul id="historyList"></ul>
+    </div>
+
+    <footer>
+      Note: The function uses JavaScript's Number() conversion for validation
+    </footer>
+  </div>
+
+  <script>
+    const startBtn = document.getElementById('startBtn');
+    const resultDisplay = document.getElementById('result');
+    const historyList = document.getElementById('historyList');
+
+    // Initialize history array
+    let history = [];
+
+    // Function to add item to history
+    function addToHistory(input, isValid, result) {
+      const timestamp = new Date().toLocaleTimeString();
+      const status = isValid ? 'Valid' : 'Invalid';
+      const resultText = result !== null ? result : 'Cancelled';
+
+      history.unshift({
+        input,
+        status,
+        result: resultText,
+        timestamp
+      });
+
+      // Keep only last 5 items
+      if (history.length > 5) {
+        history.pop();
+      }
+
+      updateHistoryDisplay();
+    }
+
+    // Function to update history display
+    function updateHistoryDisplay() {
+      historyList.innerHTML = '';
+
+      history.forEach(item => {
+        const li = document.createElement('li');
+        const resultClass = item.result === 'Cancelled' ? 'result-null' : '';
+
+        li.innerHTML = `
+                    <strong>${item.timestamp}</strong> - 
+                    Input: <code>"${item.input}"</code> → 
+                    Status: <span style="color:${item.status === 'Valid' ? '#27ae60' : '#e74c3c'}">${item.status}</span> → 
+                    Result: <span class="${resultClass}">${item.result}</span>
+                `;
+        historyList.appendChild(li);
+      });
+    }
+
+    function readNumber() {
+      while (true) {
+        const input = prompt("Enter a number (or cancel to exit):", "");
+
+        // If user cancels or enters empty string
+        if (input === null || input.trim() === "") {
+          return null;
+        }
+
+        const num = Number(input);
+
+        // Check if conversion is successful (not NaN)
+        if (!isNaN(num)) {
+          return num;
+        }
+
+        // For history - record invalid attempt
+        addToHistory(input, false, NaN);
+      }
+    }
+
+    // Event listener for button click
+    startBtn.addEventListener('click', () => {
+      const result = readNumber();
+
+      if (result === null) {
+        resultDisplay.textContent = "Operation cancelled";
+        resultDisplay.className = "result-null";
+      } else {
+        resultDisplay.textContent = result;
+        resultDisplay.className = "result-value";
+
+        // Add to history
+        addToHistory(result, true, result);
+      }
+    });
+
+    // Initial history update
+    updateHistoryDisplay();
+  </script>
+</body>
+
+</html>
