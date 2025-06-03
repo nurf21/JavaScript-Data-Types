@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sum Calculator</title>
+</head>
+
+<body>
+  <script>
+    // Prompt for first number and convert to number
+    const num1 = Number(prompt("Enter first number:"));
+
+    // Prompt for second number and convert to number
+    const num2 = Number(prompt("Enter second number:"));
+
+    // Calculate sum
+    const sum = num1 + num2;
+
+    if (isNaN(num1) || isNaN(num2)) {
+      alert("Please enter valid numbers!");
+    } else {
+      alert(`The sum is: ${sum}`);
+    }
+  </script>
+</body>
+
+</html>
