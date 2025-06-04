@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Integer Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Random Integer Generator</h1>
+
+    <div class="description">
+      Generate random integers between a specified minimum and maximum value (inclusive) with equal probability.
+    </div>
+
+    <div class="controls">
+      <div class="control-group">
+        <label for="minValue">Minimum Value:</label>
+        <input type="number" id="minValue" value="1" min="-1000" max="1000">
+      </div>
+
+      <div class="control-group">
+        <label for="maxValue">Maximum Value:</label>
+        <input type="number" id="maxValue" value="10" min="-1000" max="1000">
+      </div>
+    </div>
+
+    <button class="btn" id="generateBtn">Generate Random Integer</button>
+
+    <div class="result-container">
+      <div class="result-label">Your Random Number</div>
+      <div id="result" class="result-value">—</div>
+    </div>
+
+    <div class="history">
+      <h2>Recent Results</h2>
+      <div id="historyList" class="history-list"></div>
+    </div>
+
+    <div class="probability-info">
+      <h3>About Uniform Probability</h3>
+      <p>
+        The randomInteger(min, max) function uses the formula:
+        <code>Math.floor(Math.random() * (max - min + 1)) + min</code>.
+        This ensures that every integer between min and max has an equal chance of being selected.
+        For example, between 1 and 5, each number (1, 2, 3, 4, 5) has exactly a 20% probability of being chosen.
+      </p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
