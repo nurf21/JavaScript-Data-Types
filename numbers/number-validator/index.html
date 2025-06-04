@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Input Validator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Number Input Validator</h1>
+
+    <div class="description">
+      This utility will prompt you to enter a numeric value until you provide a valid number or cancel the operation.
+    </div>
+
+    <div class="instructions">
+      <h3>How it works:</h3>
+      <ul>
+        <li>Click the "Enter Number" button to start</li>
+        <li>Enter any value in the prompt dialog</li>
+        <li>The system will validate your input</li>
+        <li>If the value is not a valid number, you'll be prompted again</li>
+        <li>You can cancel at any time by clicking "Cancel" or entering an empty string</li>
+      </ul>
+    </div>
+
+    <button class="btn" id="startBtn">Enter Number</button>
+
+    <div class="result-container">
+      <div class="result-title">Result:</div>
+      <div id="result" class="result-value">—</div>
+    </div>
+
+    <div class="history">
+      <h3>Validation History:</h3>
+      <ul id="historyList"></ul>
+    </div>
+
+    <footer>
+      Note: The function uses JavaScript's Number() conversion for validation
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
