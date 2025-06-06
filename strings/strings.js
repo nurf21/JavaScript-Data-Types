@@ -30,4 +30,14 @@ console.log(truncate("What I'd like to tell on this topic is:", 20));
 console.log(truncate("Hi everyone!", 20));
 console.log(truncate("Hello", 5));
 console.log(truncate("Hello", 4));
-console.log(truncate("A", 1)); 
+console.log(truncate("A", 1));
+
+function extractCurrencyValue(str) {
+  return +str.slice(1);
+}
+
+console.log(extractCurrencyValue('$120'));
+console.log(extractCurrencyValue('$0'));
+console.log(extractCurrencyValue('$5.99'));
+console.log(extractCurrencyValue('$120.50'));
+console.log(extractCurrencyValue('$-100'));
