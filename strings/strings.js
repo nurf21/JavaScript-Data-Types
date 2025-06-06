@@ -18,4 +18,16 @@ console.log(checkSpam('free xxxxx'));
 console.log(checkSpam("innocent rabbit"));
 console.log(checkSpam('VIAGRA'));
 console.log(checkSpam('xXx'));
-console.log(checkSpam(''));                
+console.log(checkSpam(''));
+
+function truncate(str, maxlength) {
+  return (str.length > maxlength) ?
+    str.slice(0, maxlength - 1) + '…' :
+    str;
+}
+
+console.log(truncate("What I'd like to tell on this topic is:", 20));
+console.log(truncate("Hi everyone!", 20));
+console.log(truncate("Hello", 5));
+console.log(truncate("Hello", 4));
+console.log(truncate("A", 1)); 
