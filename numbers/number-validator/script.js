@@ -112,7 +112,7 @@ startBtn.addEventListener('click', () => {
   const result = readNumber();
 
   if (!resultDisplay) return;
-  
+
   if (result === null) {
     resultDisplay.textContent = "Operation cancelled";
     resultDisplay.className = "result-null";
