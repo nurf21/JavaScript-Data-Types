@@ -40,3 +40,20 @@ console.log(getMaxSubSum([-2, -1, 1, 2]));
 console.log(getMaxSubSum([100, -9, 2, -3, 5]));
 console.log(getMaxSubSum([1, 2, 3]));
 console.log(getMaxSubSum([-1, -2, -3]));
+
+function camelize(str) {
+  return str
+    .split('-')              // Split the string by dashes
+    .map((word, index) =>    // Process each word
+      index === 0
+        ? word               // Leave the first word unchanged
+        : word.charAt(0).toUpperCase() + word.slice(1)  // Capitalize first letter of other words
+    )
+    .join('');               // Join words back together
+}
+
+console.log(camelize("background-color"));
+console.log(camelize("list-style-image"));
+console.log(camelize("-webkit-transition"));
+console.log(camelize("a-b-c"));
+console.log(camelize("test"));     
