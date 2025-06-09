@@ -1,3 +1,6 @@
+// Array operations
+// ==================================================
+
 // Step 1: Create initial array
 let styles = ["Jazz", "Blues"];
 console.log(styles);
@@ -20,6 +23,9 @@ console.log(styles);
 styles.unshift("Rap", "Reggae");
 console.log(styles);
 
+// A maximal subarray
+// ==================================================
+
 function getMaxSubSum(arr) {
   let maxSum = 0;
   let currentSum = 0;
@@ -41,6 +47,9 @@ console.log(getMaxSubSum([100, -9, 2, -3, 5]));
 console.log(getMaxSubSum([1, 2, 3]));
 console.log(getMaxSubSum([-1, -2, -3]));
 
+// Translate border-left-width to borderLeftWidth
+// ==================================================
+
 function camelize(str) {
   return str
     .split('-')              // Split the string by dashes
@@ -58,6 +67,9 @@ console.log(camelize("-webkit-transition"));
 console.log(camelize("a-b-c"));
 console.log(camelize("test"));
 
+// Filter range
+// ==================================================
+
 function filterRange(arr, a, b) {
   return arr.filter(item => item >= a && item <= b);
 }
@@ -70,6 +82,9 @@ console.log(arr);
 console.log(filterRange([10, 20, 30, 40], 15, 35));
 console.log(filterRange([1, 2, 3, 4, 5], 3, 3));
 console.log(filterRange(['apple', 'banana', 'cherry'], 'a', 'c'));
+
+// Filter range "in place"
+// ==================================================
 
 function filterRangeInPlace(arr, a, b) {
   for (let i = 0; i < arr.length; i++) {
@@ -104,3 +119,10 @@ console.log(arr4);
 let arr5 = [-5, -3, 0, 3, 5];
 filterRangeInPlace(arr5, -4, 4);
 console.log(arr5);
+
+// Sort in decreasing order
+// ==================================================
+
+let arr6 = [5, 2, 1, -10, 8];
+arr6.sort((a, b) => b - a);
+alert(arr6);
