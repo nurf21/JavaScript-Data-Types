@@ -70,3 +70,37 @@ console.log(arr);
 console.log(filterRange([10, 20, 30, 40], 15, 35));
 console.log(filterRange([1, 2, 3, 4, 5], 3, 3));
 console.log(filterRange(['apple', 'banana', 'cherry'], 'a', 'c'));
+
+function filterRangeInPlace(arr, a, b) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < a || arr[i] > b) {
+      arr.splice(i, 1);
+      i--; // Adjust index after removal
+    }
+  }
+}
+
+// Test 1: Basic functionality
+let arr1 = [5, 3, 8, 1];
+filterRangeInPlace(arr1, 1, 4);
+console.log(arr1);
+
+// Test 2: No elements removed
+let arr2 = [2, 3, 4];
+filterRangeInPlace(arr2, 1, 5);
+console.log(arr2);
+
+// Test 3: All elements removed
+let arr3 = [10, 20, 30];
+filterRangeInPlace(arr3, 1, 5);
+console.log(arr3);
+
+// Test 4: Boundary values included
+let arr4 = [1, 2, 3, 4, 5];
+filterRangeInPlace(arr4, 2, 4);
+console.log(arr4);
+
+// Test 5: Negative numbers
+let arr5 = [-5, -3, 0, 3, 5];
+filterRangeInPlace(arr5, -4, 4);
+console.log(arr5);
