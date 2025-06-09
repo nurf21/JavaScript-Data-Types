@@ -125,4 +125,17 @@ console.log(arr5);
 
 let arr6 = [5, 2, 1, -10, 8];
 arr6.sort((a, b) => b - a);
-alert(arr6);
+console.log(arr6);
+
+// Copy and sort array
+// ==================================================
+
+function copySorted(arr) {
+  return arr.slice().sort();
+}
+
+let arr7 = ["HTML", "JavaScript", "CSS"];
+let sorted = copySorted(arr7);
+
+console.log(sorted);
+console.log(arr7);
