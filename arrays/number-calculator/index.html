@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Sum Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="calculator">
+    <h1>Number Sum Calculator</h1>
+
+    <div class="description">
+      Enter numbers below. When you're done, click "Calculate Sum". The calculator will add all valid numbers you've
+      entered.
+    </div>
+
+    <div class="input-container">
+      <input type="text" id="numberInput" placeholder="Enter a number" autofocus>
+      <div class="buttons">
+        <button id="addBtn">Add Number</button>
+        <button id="calculateBtn">Calculate Sum</button>
+        <button id="clearBtn" class="clear-btn">Clear All</button>
+      </div>
+    </div>
+
+    <div class="numbers-container">
+      <div class="numbers-title">Entered Numbers:</div>
+      <div id="numbersList" class="numbers-list">
+        <div class="empty-message">No numbers entered yet</div>
+      </div>
+    </div>
+
+    <div class="result-container">
+      <div class="result-title">Total Sum:</div>
+      <div id="result" class="result-value">0</div>
+    </div>
+
+    <div class="instructions">
+      <h3>How to use:</h3>
+      <ul>
+        <li>Enter numbers in the input field</li>
+        <li>Click "Add Number" or press Enter to add the number to the list</li>
+        <li>Positive, negative, and decimal numbers are all valid</li>
+        <li>Click "Calculate Sum" when you're ready to see the total</li>
+        <li>Click "Clear All" to reset the calculator</li>
+        <li>Invalid entries (non-numeric) will be ignored</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
