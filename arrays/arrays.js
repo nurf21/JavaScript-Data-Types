@@ -57,3 +57,16 @@ console.log(camelize("list-style-image"));
 console.log(camelize("-webkit-transition"));
 console.log(camelize("a-b-c"));
 console.log(camelize("test"));
+
+function filterRange(arr, a, b) {
+  return arr.filter(item => item >= a && item <= b);
+}
+
+let arr = [5, 3, 8, 1];
+let filtered = filterRange(arr, 1, 4);
+
+console.log(filtered);
+console.log(arr);
+console.log(filterRange([10, 20, 30, 40], 15, 35));
+console.log(filterRange([1, 2, 3, 4, 5], 3, 3));
+console.log(filterRange(['apple', 'banana', 'cherry'], 'a', 'c'));
