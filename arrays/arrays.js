@@ -56,4 +56,4 @@ console.log(camelize("background-color"));
 console.log(camelize("list-style-image"));
 console.log(camelize("-webkit-transition"));
 console.log(camelize("a-b-c"));
-console.log(camelize("test"));     
+console.log(camelize("test"));
