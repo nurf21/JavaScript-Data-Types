@@ -139,3 +139,52 @@ let sorted = copySorted(arr7);
 
 console.log(sorted);
 console.log(arr7);
+
+// Create an extendable calculator
+// ==================================================
+
+function Calculator() {
+  // Store methods in an object: operator => function
+  this.methods = {
+    "+": (a, b) => a + b,
+    "-": (a, b) => a - b
+  };
+
+  // Calculate method to parse and evaluate expressions
+  this.calculate = function (str) {
+    // Split string into parts
+    const parts = str.split(' ');
+    if (parts.length !== 3) throw new Error("Invalid expression format");
+
+    const a = +parts[0];
+    const op = parts[1];
+    const b = +parts[2];
+
+    // Validate numbers and operator
+    if (isNaN(a) || isNaN(b)) throw new Error("Invalid numbers");
+    if (!this.methods[op]) throw new Error(`Unknown operator: ${op}`);
+
+    // Perform calculation
+    return this.methods[op](a, b);
+  };
+
+  // Add new methods to the calculator
+  this.addMethod = function (name, func) {
+    this.methods[name] = func;
+  };
+}
+
+// Basic calculator with + and -
+let calc = new Calculator();
+console.log(calc.calculate("3 + 7")); // 10
+console.log(calc.calculate("10 - 5")); // 5
+
+// Extended calculator with *, /, and **
+let powerCalc = new Calculator();
+powerCalc.addMethod("*", (a, b) => a * b);
+powerCalc.addMethod("/", (a, b) => a / b);
+powerCalc.addMethod("**", (a, b) => Math.pow(a, b));
+
+console.log(powerCalc.calculate("2 ** 3")); // 8
+console.log(powerCalc.calculate("10 / 2")); // 5
+console.log(powerCalc.calculate("3 * 4")); // 12
