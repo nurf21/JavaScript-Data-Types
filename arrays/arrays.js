@@ -254,3 +254,14 @@ console.log(arr8);
 
 shuffle(arr8);
 console.log(arr8);
+
+// Get average age
+// ==================================================
+
+function getAverageAge(users) {
+  return users.reduce((sum, user) => sum + user.age, 0) / users.length;
+}
+
+let arr9 = [johnAge, peteAge, maryAge];
+
+console.log(getAverageAge(arr9));
