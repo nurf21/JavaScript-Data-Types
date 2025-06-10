@@ -176,7 +176,7 @@ function Calculator() {
 
 // Basic calculator with + and -
 let calc = new Calculator();
-console.log(calc.calculate("3 + 7")); 
+console.log(calc.calculate("3 + 7"));
 console.log(calc.calculate("10 - 5"));
 
 // Extended calculator with *, /, and **
@@ -196,8 +196,25 @@ let john = { name: "John", age: 25 };
 let pete = { name: "Pete", age: 30 };
 let mary = { name: "Mary", age: 28 };
 
-let users = [ john, pete, mary ];
+let users = [john, pete, mary];
 
 let names = users.map(user => user.name);
 
-console.log( names );
+console.log(names);
+
+// Map to objects
+// ==================================================
+
+let johnSmith = { name: "John", surname: "Smith", id: 1 };
+let peteHunt = { name: "Pete", surname: "Hunt", id: 2 };
+let maryKey = { name: "Mary", surname: "Key", id: 3 };
+
+let users2 = [johnSmith, peteHunt, maryKey];
+
+let usersMapped = users2.map(user => ({
+  fullName: `${user.name} ${user.surname}`,
+  id: user.id
+}));
+
+console.log(usersMapped[0].id);
+console.log(usersMapped[0].fullName);
