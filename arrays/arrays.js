@@ -188,3 +188,16 @@ powerCalc.addMethod("**", (a, b) => Math.pow(a, b));
 console.log(powerCalc.calculate("2 ** 3"));
 console.log(powerCalc.calculate("10 / 2"));
 console.log(powerCalc.calculate("3 * 4"));
+
+// Map to names
+// ==================================================
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let users = [ john, pete, mary ];
+
+let names = users.map(user => user.name);
+
+console.log( names );
