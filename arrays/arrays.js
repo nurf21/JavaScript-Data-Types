@@ -265,3 +265,16 @@ function getAverageAge(users) {
 let arr9 = [johnAge, peteAge, maryAge];
 
 console.log(getAverageAge(arr9));
+
+// Filter unique array members
+// ==================================================
+
+function unique(arr) {
+  return Array.from(new Set(arr));
+}
+
+let strings = ["Hare", "Krishna", "Hare", "Krishna",
+  "Krishna", "Krishna", "Hare", "Hare", ":-O"
+];
+
+console.log( unique(strings) );
