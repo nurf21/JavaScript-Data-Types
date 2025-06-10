@@ -176,8 +176,8 @@ function Calculator() {
 
 // Basic calculator with + and -
 let calc = new Calculator();
-console.log(calc.calculate("3 + 7")); // 10
-console.log(calc.calculate("10 - 5")); // 5
+console.log(calc.calculate("3 + 7")); 
+console.log(calc.calculate("10 - 5"));
 
 // Extended calculator with *, /, and **
 let powerCalc = new Calculator();
@@ -185,6 +185,6 @@ powerCalc.addMethod("*", (a, b) => a * b);
 powerCalc.addMethod("/", (a, b) => a / b);
 powerCalc.addMethod("**", (a, b) => Math.pow(a, b));
 
-console.log(powerCalc.calculate("2 ** 3")); // 8
-console.log(powerCalc.calculate("10 / 2")); // 5
-console.log(powerCalc.calculate("3 * 4")); // 12
+console.log(powerCalc.calculate("2 ** 3"));
+console.log(powerCalc.calculate("10 / 2"));
+console.log(powerCalc.calculate("3 * 4"));
