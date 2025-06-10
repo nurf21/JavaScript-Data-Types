@@ -237,3 +237,20 @@ sortByAge(arrUsers);
 console.log(arrUsers[0].name);
 console.log(arrUsers[1].name);
 console.log(arrUsers[2].name);
+
+// Shuffle an array
+// ==================================================
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+let arr8 = [1, 2, 3];
+shuffle(arr8);
+console.log(arr8);
+
+shuffle(arr8);
+console.log(arr8);
