@@ -218,3 +218,22 @@ let usersMapped = users2.map(user => ({
 
 console.log(usersMapped[0].id);
 console.log(usersMapped[0].fullName);
+
+// Sort users by age
+// ==================================================
+
+function sortByAge(users) {
+  users.sort((a, b) => a.age - b.age);
+}
+
+let johnAge = { name: "John", age: 25 };
+let peteAge = { name: "Pete", age: 30 };
+let maryAge = { name: "Mary", age: 28 };
+
+let arrUsers = [peteAge, johnAge, maryAge];
+
+sortByAge(arrUsers);
+
+console.log(arrUsers[0].name);
+console.log(arrUsers[1].name);
+console.log(arrUsers[2].name);
