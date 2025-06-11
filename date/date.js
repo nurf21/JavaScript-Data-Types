@@ -78,3 +78,51 @@ function getSecondsToTomorrow() {
 }
 
 console.log(getSecondsToTomorrow());
+
+// Format the relative date
+// ==================================================
+
+function formatDate(date) {
+  const now = new Date();
+  const diff = now - date; // difference in milliseconds
+
+  // Less than 1 second
+  if (diff < 1000) {
+    return "right now";
+  }
+  // Less than 1 minute -> seconds ago
+  else if (diff < 60000) {
+    const seconds = Math.floor(diff / 1000);
+    return `${seconds} sec. ago`;
+  }
+  // Less than 1 hour -> minutes ago
+  else if (diff < 3600000) {
+    const minutes = Math.floor(diff / 60000);
+    return `${minutes} min. ago`;
+  }
+  // Else, full date in "DD.MM.YY HH:mm" format.
+  else {
+    let day = date.getDate();
+    let month = date.getMonth() + 1; // Months are zero-indexed!
+    let year = date.getFullYear() % 100; // Two-digit year, example: 2016 -> 16
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+
+    // Format each part as 2-digit values:
+    day = String(day).padStart(2, "0");
+    month = String(month).padStart(2, "0");
+    year = String(year).padStart(2, "0");
+    hours = String(hours).padStart(2, "0");
+    minutes = String(minutes).padStart(2, "0");
+
+    return `${day}.${month}.${year} ${hours}:${minutes}`;
+  }
+}
+
+// Example usage:
+console.log(formatDate(new Date(new Date - 1)));
+console.log(formatDate(new Date(new Date - 30 * 1000)));
+console.log(formatDate(new Date(new Date - 5 * 60 * 1000)));
+
+// For a date like yesterday:
+console.log(formatDate(new Date(new Date - 86400 * 1000)));
