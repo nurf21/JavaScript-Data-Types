@@ -16,3 +16,17 @@ let salaries = {
 };
 
 console.log(sumSalaries(salaries));
+
+// Count properties
+// ==================================================
+
+function count(obj) {
+  return Object.keys(obj).length;
+}
+
+let user = {
+  name: 'John',
+  age: 30
+};
+
+console.log(count(user));
