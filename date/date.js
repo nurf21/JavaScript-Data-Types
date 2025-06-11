@@ -65,3 +65,16 @@ function getSecondsToday() {
 }
 
 console.log(getSecondsToday());
+
+// How many seconds till tomorrow?
+// ==================================================
+
+function getSecondsToTomorrow() {
+  const now = new Date();
+  // Create a date object for tomorrow at midnight.
+  const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+  // Calculate the difference in seconds.
+  return Math.floor((tomorrow - now) / 1000);
+}
+
+console.log(getSecondsToTomorrow());
