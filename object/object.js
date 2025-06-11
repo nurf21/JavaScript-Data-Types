@@ -1,4 +1,4 @@
-// Store read dates
+// Sum the properties
 // ==================================================
 
 function sumSalaries(salaries) {
