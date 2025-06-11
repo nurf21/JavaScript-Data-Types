@@ -15,3 +15,15 @@ function getWeekDay(date) {
 // Example:
 let date2 = new Date(2012, 0, 3);
 console.log(getWeekDay(date2));
+
+// European weekday
+// ==================================================
+
+function getLocalDay(date) {
+  let day = date.getDay();
+  return day === 0 ? 7 : day;
+}
+
+// Example usage:
+let date3 = new Date(2012, 0, 3);
+console.log(getLocalDay(date3));
