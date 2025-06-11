@@ -30,3 +30,14 @@ let user = {
 };
 
 console.log(count(user));
+
+// Destructuring assignment
+// ==================================================
+
+let user2 = { name: "John", years: 30 };
+
+let { name, years: age, isAdmin = false } = user2;
+
+console.log(name);
+console.log(age);
+console.log(isAdmin);
