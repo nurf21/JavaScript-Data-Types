@@ -41,3 +41,29 @@ let { name, years: age, isAdmin = false } = user2;
 console.log(name);
 console.log(age);
 console.log(isAdmin);
+
+// The maximal salary
+// ==================================================
+
+function topSalary(salaries) {
+  let maxSalary = 0;
+  let topPerson = null;
+
+  for (let [name, salary] of Object.entries(salaries)) {
+    if (salary > maxSalary) {
+      maxSalary = salary;
+      topPerson = name;
+    }
+  }
+
+  return topPerson;
+}
+
+// Example usage:
+let salaries2 = {
+  "John": 100,
+  "Pete": 300,
+  "Mary": 250
+};
+
+console.log(topSalary(salaries2));
