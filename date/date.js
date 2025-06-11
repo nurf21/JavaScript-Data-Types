@@ -44,3 +44,13 @@ let date4 = new Date(2015, 0, 2);
 console.log(getDateAgo(date4, 1));
 console.log(getDateAgo(date4, 2));
 console.log(getDateAgo(date4, 365));
+
+// Last day of month?
+// ==================================================
+
+function getLastDayOfMonth(year, month) {
+  // month + 1 is next month, setting day to 0 gives us the last day of the current month.
+  return new Date(year, month + 1, 0).getDate();
+}
+
+console.log(getLastDayOfMonth(2012, 1));
