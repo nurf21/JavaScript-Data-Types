@@ -42,3 +42,31 @@ function aclean(arr) {
 
 let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
 console.log(aclean(arr));
+
+// Store "unread" flags
+// ==================================================
+
+// Create a WeakSet to store read message objects.
+const readMessages = new WeakSet();
+
+// When a message is marked as read:
+function markAsRead(message) {
+  readMessages.add(message);
+}
+
+// To check if a message has been read:
+function isRead(message) {
+  return readMessages.has(message);
+}
+
+// Example usage:
+let messages = [
+  { text: "Hello", from: "John" },
+  { text: "How goes?", from: "John" },
+  { text: "See you soon", from: "Alice" }
+];
+
+markAsRead(messages[0]);
+
+console.log(isRead(messages[0]));
+console.log(isRead(messages[1]));
