@@ -27,3 +27,20 @@ function getLocalDay(date) {
 // Example usage:
 let date3 = new Date(2012, 0, 3);
 console.log(getLocalDay(date3));
+
+// Which day of month was many days ago?
+// ==================================================
+
+function getDateAgo(date, days) {
+  // Create a copy of the date so as not to modify the original.
+  let dateCopy = new Date(date);
+  // Subtract "days" from the day number.
+  dateCopy.setDate(date.getDate() - days);
+  // Return the day of the month.
+  return dateCopy.getDate();
+}
+
+let date4 = new Date(2015, 0, 2);
+console.log(getDateAgo(date4, 1));
+console.log(getDateAgo(date4, 2));
+console.log(getDateAgo(date4, 365));
