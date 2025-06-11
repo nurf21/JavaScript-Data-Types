@@ -54,3 +54,14 @@ function getLastDayOfMonth(year, month) {
 }
 
 console.log(getLastDayOfMonth(2012, 1));
+
+// How many seconds have passed today?
+// ==================================================
+
+function getSecondsToday() {
+  const now = new Date();
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  return Math.floor((now - todayStart) / 1000);
+}
+
+console.log(getSecondsToday());
